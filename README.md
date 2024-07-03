@@ -1,1 +1,7 @@
-I am p.sushmitha.I have done Task 1.
+I am p.sushmitha.
+CODETECH IT SOLUTIONS COMPANY.
+COD345
+DATA SCIENCE
+JULY 2024.
+NEELA SANTHOSH KUMAR
+I have done Task 1.
