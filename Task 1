@@ -1,0 +1,60 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Optional: Set visualization style
+plt.style.use('seaborn-darkgrid')
+# Example: Loading a CSV file
+data = pd.read_csv('your_dataset.csv')
+# Display the first few rows of the dataset
+print(data.head())
+
+# Display basic information about the dataset
+print(data.info())
+
+# Display summary statistics
+print(data.describe())
+# Check for missing values
+print(data.isnull().sum())
+
+# Handle missing values (examples: dropping or filling)
+data = data.dropna()  # Drop rows with missing values
+# or
+data = data.fillna(method='ffill')  # Fill missing values using forward fill
+
+# Check for duplicate rows
+print(data.duplicated().sum())
+
+# Remove duplicate rows if any
+data = data.drop_duplicates()
+# Histograms for continuous variables
+data.hist(bins=30, figsize=(15, 10))
+plt.show()
+
+# Count plots for categorical variables
+categorical_columns = ['categorical_column1', 'categorical_column2']
+for column in categorical_columns:
+    sns.countplot(y=column, data=data)
+    plt.show()
+# Scatter plots for continuous variables
+sns.scatterplot(x='feature1', y='feature2', data=data)
+plt.show()
+
+# Box plots for categorical vs continuous variables
+sns.boxplot(x='categorical_column', y='continuous_column', data=data)
+plt.show()
+
+# Pair plots for pairwise relationships
+sns.pairplot(data)
+plt.show()
+# Correlation matrix
+correlation_matrix = data.corr()
+
+# Heatmap of the correlation matrix
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm')
+plt.show()
+# Save the cleaned data to a new CSV file
+data.to_csv('cleaned_dataset.csv', index=False)
+
