@@ -48,8 +48,9 @@ plt.suptitle('Pair Plot for DataFrame')
 plt.show()
 
 # Assuming 'df' is your DataFrame
-df['quality'] = df['quality'].astype(str)  # Convert 'quality' to categorical
+df['quality'] = df['quality'].astype(str)  
 
+# Convert 'quality' to categorical
 plt.figure(figsize=(10, 8))
 
 # Using Seaborn to create a violin plot
