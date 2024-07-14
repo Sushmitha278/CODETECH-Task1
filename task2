@@ -1,0 +1,60 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataset
+# For example purposes, we'll use the 'tips' dataset from seaborn
+data = sns.load_dataset('tips')
+
+# Display the first few rows of the dataset
+print("First few rows of the dataset:")
+print(data.head())
+
+# Summary statistics
+print("\nSummary statistics:")
+print(data.describe())
+
+# Information about the dataset
+print("\nInformation about the dataset:")
+print(data.info())
+
+# Check for missing values
+print("\nMissing values in the dataset:")
+print(data.isnull().sum())
+
+# Handling missing values (if any)
+# For example, we can fill missing values with the median
+# data = data.fillna(data.median())
+
+# Data visualization
+
+# Histogram of numerical columns
+data.hist(figsize=(10, 8))
+plt.suptitle('Histograms of Numerical Columns')
+plt.show()
+
+# Pairplot for numerical columns
+sns.pairplot(data)
+plt.suptitle('Pairplot of Numerical Columns', y=1.02)
+plt.show()
+
+# Correlation heatmap
+plt.figure(figsize=(10, 8))
+sns.heatmap(data.corr(), annot=True, cmap='coolwarm', fmt='.2f')
+plt.title('Correlation Heatmap')
+plt.show()
+
+# Boxplots for categorical vs numerical columns
+for column in data.select_dtypes(include=['object']).columns:
+    plt.figure(figsize=(10, 6))
+    sns.boxplot(x=column, y='total_bill', data=data)
+    plt.title(f'Boxplot of Total Bill by {column}')
+    plt.show()
+
+# Countplots for categorical columns
+for column in data.select_dtypes(include=['object']).columns:
+    plt.figure(figsize=(10, 6))
+    sns.countplot(x=column, data=data)
+    plt.title(f'Countplot of {column}')
+    plt.show()
