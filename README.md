@@ -5,7 +5,7 @@ DOMAIN : DATA SCIENCE
 DURATION : JULY
 MONITOR : NEELA SANTHOSH KUMAR
 Overview of the project :
-project : Exploratory Data Analysis(EDA) on different types of data visualization tool
+project : Exploratory Data Analysis(EDA) on world  population dataset different types of data visualization tool
 Objective :
 The objective of this project is to perform Exploratory Data Analysis(EDA) on a dataset containing statistics data.count plots for categorical data and outliers through visualizations.
 Key Activities :
